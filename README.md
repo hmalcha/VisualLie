@@ -1,42 +1,43 @@
 # VisualLie
 
 VisualLie is a web app to visualize the root system of the Feingold-Frenkel algebra.
-It uses the Bokeh Python library to generate an interactive plot which is stored in the "VisualLie.html" file.
-The file can be opened with any modern web browser. 
+It uses the Bokeh Python library to generate an interactive plot which is stored in the 
+**VisualLie.html** file. The file can be opened with any modern web browser. 
 
-The easiest way to get started with VisualLie is to download the "VisualLie.html" file and open it with your favorite web browser.
+The easiest way to get started with VisualLie is to download the **VisualLie.html** file
+and open it with your favorite web browser.
 
 ## Getting Started
 If you want to modify VisualLie or build the "VisualLie.html" yourself follow these steps. 
 
-VisualLie requires a Python installation with [Bokeh]{https://docs.bokeh.org/en/latest/index.html}.
+VisualLie requires a Python installation with [Bokeh](https://docs.bokeh.org/en/latest/index.html).
 To install Bokeh using `pip`, enter
 
 ```
 pip install bokeh
 ```
 
-Then you can run "VisualLie.py" to build "VisualLie.html" using
+Then you can run **VisualLie.py** to build **VisualLie.html** using
 
 ```
 python VisualLie.py
 ```
 
 ## Usage
-VisualLie is self contained. When you open the "VisualLie.html" file with your favorite web browser
+VisualLie is self contained. When you open the **VisualLie.html** file with your favorite web browser
 you are presented with a brief explanation how to interact with the plot and the mathematics behind it.
 
 To learn more about the Bokeh plot tools visit 
-[the Bokeh documentation]{https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tools.html}.
+[the Bokeh documentation](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tools.html).
 
 ## Rootsystem
-Included in VisualLie is a Python package called "rootsystem". It constructs the root system
+Included in VisualLie is a Python package called **rootsystem**. It constructs the root system
 of the Feingold-Frenkel algebra. 
 
 This package is based on based the SimpLie programm written by Teake Nutma, which is available
 at https://github.com/teake/simplie.
 
-"rootsystem" requires a Python installation with [numPy]{https://numpy.org/}.
+**rootsystem** requires a Python installation with [numPy](https://numpy.org/).
 To install numPy using `pip`, enter
 
 ```
