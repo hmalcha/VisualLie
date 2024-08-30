@@ -1,11 +1,11 @@
 # VisualLie
 
 VisualLie is a web app to visualize the root system of the Feingold-Frenkel algebra.
-It uses the Bokeh Python library to generate an interactive plot which is stored in the 
-**VisualLie.html** file. The file can be opened with any modern web browser. 
+It uses the Bokeh Python library to generate an interactive plot. The plot is stored in the 
+**VisualLie.html** file, which can be opened with any modern web browser. 
 
 The easiest way to get started with VisualLie is to download the **VisualLie.html** file
-and open it with your favorite web browser.
+and open.
 
 ## Getting Started
 If you want to modify VisualLie or build the "VisualLie.html" yourself follow these steps. 
