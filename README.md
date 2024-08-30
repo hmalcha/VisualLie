@@ -36,8 +36,8 @@ of the Feingold-Frenkel algebra.
 This package is based on the SimpLie program written by Teake Nutma, which is available
 at https://github.com/teake/simplie.
 
-**rootsystem** requires a Python installation with [numPy](https://numpy.org/).
-To install numPy using `pip`, enter
+**rootsystem** requires a Python installation with [NumPy](https://numpy.org/).
+To install NumPy using `pip`, enter
 
 ```
 pip install numpy
