@@ -1,0 +1,114 @@
+<!--
+This file is part of VisualLie.
+
+Copyright (C) 2024 Hannes Malcha 
+
+VisualLie is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+VisualLie is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with VisualLie.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!--
+VisualLie is a web app to visualize the root system of the
+Feingold-Frenkel algebra.
+
+This file contains the text displayed in the .html file and styling
+of the .html page around the bokeh plot.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualLie</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        #title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+        #subtitle {
+            width: 950px;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: 0px;
+            text-align: left;
+            font-size: 20px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+        #text {
+            max-width: 950px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: 0px;
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        #plot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+    <!--Script for MathJac-->
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+<div id="title">
+        <p>VisualLie</p>
+    </div>
+    <div id="text">
+        {% include 'text_above_plot.html' %}
+    </div>
+    <div id="plot-container">
+        {{ html_plot }}
+    </div>
+    <div id="subtitle">
+        <body>
+            License
+        </body>
+    </div>
+    <div id="text">
+        {% include 'text_below_plot.html' %}
+    </div>
+</body>
+</html>
