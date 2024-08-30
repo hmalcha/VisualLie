@@ -28,9 +28,9 @@ The package is called with one optional argument from the command line.
 The argument is the height up to which the root system will be constructed.
 If no argument is given the calculation defaults to a height of 76.
 
-Upon calling the rootsystem package from the command line the root system
-is automatically constructed up to the given height and stored as a csv file
-in the data/ folder. The first the numbers in each row are the root vector and
+Upon executing the rootsystem package the root system is automatically 
+constructed up to the given height and stored as a csv file in the 
+data/ folder. The first three numbers in each row are the root vector and
 the last number is the multiplicity of that root.
 """
 
