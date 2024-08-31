@@ -26,15 +26,13 @@ python VisualLie.py
 VisualLie is self-contained. When you open the **VisualLie.html** file with your favorite web browser
 you are presented with a brief explanation of how to interact with the plot and the mathematics behind it.
 
-To learn more about the Bokeh plot tools, visit 
-[the Bokeh documentation](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tools.html).
+To learn more about the Bokeh plot tools, visit the
+[Bokeh documentation](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tools.html).
 
 ## Rootsystem
 Included in VisualLie is a Python package called **rootsystem**. It constructs the root system
-of the Feingold-Frenkel algebra. 
-
-This package is based on the SimpLie program written by Teake Nutma, which is available
-at https://github.com/teake/simplie.
+of the Feingold-Frenkel algebra. This package is based on the SimpLie program written 
+by Teake Nutma, which is available at https://github.com/teake/simplie.
 
 **rootsystem** requires a Python installation with [NumPy](https://numpy.org/).
 To install NumPy using `pip`, enter
