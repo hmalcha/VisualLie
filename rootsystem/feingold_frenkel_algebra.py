@@ -53,13 +53,16 @@ class Feingold_Frenkel_Algebra:
     def __init__(self):
         """Initializes Feingold_Frenkel_Algebra."""   
         self.cartan_matrix = np.array([[2,-1,0],[-1,2,-2],[0,-2,2]])
+        self.d = np.diag([1,1,1])
         self.rank = 3
+        self.finite = False
+        self.metric = np.dot(self.cartan_matrix, self.d)
      
         
     def inner_product(self, root_1, root_2):
         """Computes the inner product of root_1 and root_2."""
         
-        return np.dot(root_1.vector , np.dot(self.cartan_matrix, root_2.vector))
+        return np.dot(root_1.vector , np.dot(self.metric, root_2.vector))
     
     
     def root_to_weight(self, root_vector):
@@ -90,4 +93,4 @@ class Feingold_Frenkel_Algebra:
     
     def rho(self, root):
         """Calculate the action of the Weyl vector on a root."""
-        return np.sum(root.vector)
+        return np.sum(np.dot(root.vector, self.d))

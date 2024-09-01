@@ -72,10 +72,19 @@ class Root_System:
         _csa.add(_csa_root)
         self.root_system.append(_csa)
         
+        # Stop the construction if the algebra has rank 0
+        if self.rank == 0:
+            return
+            
         # Add the simple roots
         _simple_roots = set()
         
         for i in range(self.rank):
+            # Skip the index if the diagonal element in the 
+            # Cartan matrix is not positive
+            if self.algebra.cartan_matrix[i][i] <= 0:
+                continue
+            
             _root_vector = np.zeros(self.rank, dtype=int)
             for j in range(self.rank):
                 _root_vector[j] = 1 if i == j else 0
@@ -83,7 +92,7 @@ class Root_System:
             _simple_root = Root(_root_vector)
             _simple_root.mult = 1
             _simple_root.co_mult = Fraction(1)
-            _simple_root.norm = algebra.cartan_matrix[i][i]
+            _simple_root.norm = self.algebra.d[i] * self.algebra.cartan_matrix[i][i]
             _simple_roots.add(_simple_root)
            
         
@@ -91,12 +100,16 @@ class Root_System:
         
         # Set the construction height to 1
         self._constructed_height = 1
+        self._fully_constructed = False
         
         # Define the lists of the root multiples
         self._root_multiples = []
         self._root_multiples.append([])
         self._root_multiples.append([])
         
+        # If the algebra is finite, we can construct the root system to all heights.
+        if self.algebra.finite:
+            construct(0)  
 
     def constructed_height(self):
         """Return the height to which we so far have constructed the root system."""
@@ -118,7 +131,7 @@ class Root_System:
             return 0
         
         # If we haven't constructed the roots system this far, do so now
-        if _root_height > self._constructed_height:
+        if _root_height > self._constructed_height and not self._fully_constructed:
             self.construct(_root_height)
             
         # Try to fetch the root
@@ -153,10 +166,15 @@ class Root_System:
             print("The file could not be written!")
 
 
-    def construct(self, maxHeight):
+    def construct(self, max_height):
         """Construct the root system up to the given height."""
         
-        while(self._constructed_height < maxHeight):
+        # If the root system is already fully constructed, just do nothing and return.
+        if self._fully_constructed or (not self.algebra.finite and max_height == 0) or self.rank == 0:
+            return
+        
+        
+        while(self._constructed_height < max_height or max_height == 0):
             _prev_roots = self.root_system[self._constructed_height]
             _next_height = self._constructed_height + 1
             
@@ -165,6 +183,10 @@ class Root_System:
                 _dynkin_labels = self.algebra.root_to_weight(root.vector)
                 
                 for i in range(self.rank):
+                    # Only do this for real simple roots.
+                    if self.algebra.cartan_matrix[i][i] <=0:
+                        continue
+                    
                     # For every negative Dynkin label we can add 
 					# a (partial) root string to the root table
                     if _dynkin_labels[i] >= 0:
@@ -198,6 +220,12 @@ class Root_System:
                         if _new_root not in _new_roots:
                             _new_root.norm = self.algebra.inner_product(_new_root, _new_root)
                             _new_roots.add(_new_root)
+            
+            if _next_height > len(self.root_system) - 1:
+                # We did nothing, and thus reached the highest root
+				# Make a note that we constructed the root system fully, and return
+                self._fully_constructed = True
+                return
                             
             # Calculate the co_mult and the mult for
             # all the added roots at the first new height

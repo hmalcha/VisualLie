@@ -20,8 +20,8 @@
  * Feingold-Frenkel algebra.
  *
  * This is the callback function for the zoom setting.
- * It changes tho font size of the root multiplicity when the user
- * zooms into the root lattice.
+ * It changes the font size of the root multiplicity when the user
+ * zooms in or out of the root lattice plot.
  */
 
 var xr = [plot.x_range.start,plot.x_range.end]
