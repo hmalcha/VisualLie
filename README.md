@@ -9,7 +9,7 @@ The VisualLie web app is available at
 
 https://hmalcha.github.io/VisualLie/
 
-If you want a local version of VisualLie, download the
+For a local version of VisualLie, download the
 **VisualLie.html** file and open with your favorite web browser.
 
 ## Getting Started
@@ -33,9 +33,8 @@ python VisualLie.py
 ## Usage
 VisualLie is self-contained. When you visit
 https://hmalcha.github.io/VisualLie/
-or open the **VisualLie.html** file with your favorite web browser
-you are presented with a detailed explanation of how to interact with the plot
-and the mathematics behind it.
+or open the **VisualLie.html** file you are presented with a detailed
+explanation of how to interact with the plot and the mathematics behind it.
 
 To learn more about the Bokeh plot tools, visit the
 [Bokeh documentation](https://docs.bokeh.org/en/latest/docs/user_guide/interaction/tools.html).
