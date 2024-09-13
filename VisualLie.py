@@ -262,7 +262,7 @@ radio_button_group = RadioButtonGroup(labels=BUTTON_LABELS, active=0)
 # The JS code is saved in the models/ folder
 
 
-# Callback for hiding the multiplicities depending on the zoom
+# Callback for changing the font size of the multiplicities depending on the zoom
 zoom_cb = CustomJS(args=dict(labels=labels, plot=plot, checkboxes=checkboxes, root_plots=root_plots, MAXLEVEL=MAXLEVEL),
                     code=open("models/zoom_cb.js").read()
                     )
@@ -344,7 +344,7 @@ html_plot = file_html(row(widgets, plot), CDN, "VisualLie_Plot")
 environment = Environment(loader=FileSystemLoader("templates"))
 
 # Specify the template
-template = environment.get_template("index.html")
+template = environment.get_template("main_template.html")
 
 # Insert the plot and the text into the template
 rendered_template = template.render(html_plot=html_plot)
@@ -352,6 +352,13 @@ rendered_template = template.render(html_plot=html_plot)
 # Save the plot embedded into the html template to a file
 try:
     with open("VisualLie.html", "w") as f:
+        f.write(rendered_template)
+except IOError:
+    print("Could not write the file.") 
+    
+# Save the html file to the docs/ folder for integration with GitHub Pages
+try:
+    with open("docs/index.html", "w") as f:
         f.write(rendered_template)
 except IOError:
     print("Could not write the file.") 
