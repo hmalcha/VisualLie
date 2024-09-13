@@ -9,7 +9,7 @@ The VisualLie web app is available at
 
 https://hmalcha.github.io/VisualLie/
 
-For a local version of VisualLie, download the
+For a local version of VisualLie download the
 **VisualLie.html** file and open with your favorite web browser.
 
 ## Getting Started
