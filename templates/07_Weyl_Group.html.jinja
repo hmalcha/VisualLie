@@ -1,0 +1,73 @@
+{#
+    This file is part of VisualLie.
+    
+    Copyright (C) 2024 Hannes Malcha 
+    
+    VisualLie is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    VisualLie is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with VisualLie.  If not, see <https://www.gnu.org/licenses/>.
+#}
+    
+{#
+    VisualLie is a web app to visualize the root system of the
+    Feingold-Frenkel algebra.
+    
+    This file contains part of the text displayed around the plot.
+#}
+
+<p>
+    In this section we discuss the Weyl group $\hat{W}$ of the affine
+    subalgebra $A_1^{(1)}$ of $\mathcal{F}$. $\hat{W}$ is generated 
+    by the fundamental reflections $r_0$ and $r_1$ acting on 
+    $\lambda \in \mathfrak{h}^\ast$
+
+    \begin{align}
+    r_i(\lambda) = \lambda - \left< \lambda, \boldsymbol{\alpha}_i^\vee \right>  \boldsymbol{\alpha} _i \, .
+    \end{align}
+
+    Two features are built into the figure to understand the action 
+    of the Weyl group $\hat{W}$. Clicking on a root highlights all 
+    roots (up to the maximum depth of the plot) in the Weyl orbit of 
+    that root. Moreover, a line is drawn through the roots. 
+    Feingold-Frenkel have shown that this line is always a parabola. 
+    For a root 
+    $\boldsymbol{\alpha} = a_{-1} \boldsymbol{\alpha}_{-1} + a_0 \boldsymbol{\alpha}_0 + a_1 \boldsymbol{\alpha}_1$ 
+    the parabola is described through the equation
+
+    \begin{align}
+    f(x) = - \frac{1}{a_{-1}} \left( x^2 + a_{-1} a_0  -  (a_0 - a_1)^2 \right) \, .
+    \end{align}
+
+    When clicking the <u>Weyl reflection</u> checkbox, two lines are 
+    drawn into the root lattice. They visualize the fundamental Weyl reflections.
+    The reflection $r_1$ amounts to a horizontal reflection across the line 
+    labeled $r_1$. Similarly, the reflection $r_0$ amounts to a diagonal 
+    reflection across the line labeled $r_0$. Notice that the $r_0$ line 
+    moves to the right as we increase the level. The direction of these 
+    reflections is also indicated by the arrows in the top left corner of 
+    the figure.
+</p>
+<p> 
+    There is one decomposition of the Weyl group for which the calculation
+    of Weyl orbits becomes particularly simple. Let 
+    $t(\lambda) = r_1 (r_0(\lambda))$. Then $T = \{t^n \ | \ n \in \mathbb{Z} \}$ 
+    is called the group of translations. It can then be shown that
+
+    \begin{align}
+    \hat{W} = \{ r_1 \} \ltimes T \, .
+    \end{align}
+
+    In the plot, one can switch between the <u>full Weyl group orbit</u>
+    and the <u>translation group orbit</u> with the buttons on the 
+    left-hand side. Interestingly, these two orbits start to differ only 
+    from level 3 onward.
+</p>

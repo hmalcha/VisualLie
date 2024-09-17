@@ -108,8 +108,8 @@ plot.xgrid.visible = False
 #plot.ygrid.visible = False
 
 # Set the plot dimensions and the plot range
-plot.frame_width = 700
-plot.frame_height = 700
+plot.frame_width = 650
+plot.frame_height = 650
 plot.x_range = Range1d(-12, 12)
 plot.y_range = Range1d(-31, 3)
 
@@ -239,17 +239,17 @@ taptool.renderers = [p for p in root_plots]
 
 # Add a selector for the level
 OPTIONS = [str(i) for i in range(1, MAXLEVEL + 1)]
-ticker = Select(value="1", options=OPTIONS, title="Select the level:", width = 100)
+ticker = Select(value="1", options=OPTIONS, title="Select the level:", styles={'font-size': '14px'}, width = 100)
 
 
 # Add checkboxes for showing the multiplicities and Weyl reflections
 CHECKBOX_LABELS = ["Multiplicities", "Weyl Reflections"]
-checkboxes = CheckboxGroup(labels=CHECKBOX_LABELS, active=[])
+checkboxes = CheckboxGroup(labels=CHECKBOX_LABELS, active=[], styles={'font-size': '14px'})
 
 
 # Add radio buttons for the type of Weyl orbit
 BUTTON_LABELS = ["Full", "Translation"]
-radio_button_group = RadioButtonGroup(labels=BUTTON_LABELS, active=0)
+radio_button_group = RadioButtonGroup(labels=BUTTON_LABELS, active=0, styles={'font-size': '14px'})
 
 
 #########################
@@ -310,25 +310,27 @@ radio_button_group.js_on_event("button_click", reset_taptool_cb)
 
 # Write the description displayed next to the plot
 description_1 = Div(text="""<p>Use the level selector, checkboxes, and buttons to
-                    interact with the plot.</p>""", styles={'text-align': 'justify'}, width=160)
+                    interact with the plot.</p>""", styles={'text-align': 'justify', 'font-size': '14px'}, width=180)
 description_2 = Div(text="""Note: At higher levels and depths, the multiplicities 
                     become quite large, so it is advised to use the bokeh plot 
-                    tools on the right to zoom into the root system.""", styles={'text-align': 'justify'}, width=160)
+                    tools on the right to zoom into the root system.""", styles={'text-align': 'justify', 'font-size': '14px'}, width=180)
  
 # Make a heading for the checkboxes and radio buttons
-checkbox_heading = Div(text="""<p>Show or hide additional plot elements:</p>""", width=160)
-radio_button_heading = Div(text="""<p>Select the type of Weyl orbit:</p>""", width=160)
+checkbox_heading = Div(text="""<p>Show or hide additional plot elements:</p>""", styles={'font-size': '14px'}, width=180)
+radio_button_heading = Div(text="""<p>Select the type of Weyl orbit:</p>""", styles={'font-size': '14px'}, width=180)
 
 # Define padding boxes
-v_padding_1 = Div(width=200, height=25)
-v_padding_2 = Div(width=200, height=25)
-v_padding_3 = Div(width=200, height=20)
-v_padding_4 = Div(width=200, height=20)
+v_padding_1 = Div(width=180, height=25)
+v_padding_2 = Div(width=180, height=20)
+v_padding_3 = Div(width=180, height=20)
+v_padding_4 = Div(width=180, height=20)
+v_padding_5 = Div(width=180, height=25)
 
 # Put all the widgets and text elements together
 widgets = column(v_padding_1, description_1, v_padding_2, ticker,
-                v_padding_3, checkbox_heading, checkboxes, description_2,
-                v_padding_4, radio_button_heading, radio_button_group, width = 180)
+                v_padding_3, checkbox_heading, checkboxes, 
+                v_padding_4, description_2,
+                v_padding_5, radio_button_heading, radio_button_group, width=200)
 
 
 #######################################
@@ -344,7 +346,7 @@ html_plot = file_html(row(widgets, plot), CDN, "VisualLie_Plot")
 environment = Environment(loader=FileSystemLoader("templates"))
 
 # Specify the template
-template = environment.get_template("main_template.html")
+template = environment.get_template("main_template.html.jinja")
 
 # Insert the plot and the text into the template
 rendered_template = template.render(html_plot=html_plot)

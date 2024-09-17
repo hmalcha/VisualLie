@@ -1,0 +1,292 @@
+<!--
+This file is part of VisualLie.
+
+Copyright (C) 2024 Hannes Malcha 
+
+VisualLie is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+VisualLie is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with VisualLie.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!--
+VisualLie is a web app to visualize the root system of the
+Feingold-Frenkel algebra.
+
+This file defines the structure of the VisualLie.html file.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualLie</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--Define the style for the various html elements-->
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+        h2 {
+            width: 950px;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-top: 50px;
+            margin-bottom: 5px;
+            text-align: left;
+            font-size: 25px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        #text {
+            max-width: 950px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: 0px;
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        #author {
+            max-width: 950px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: -5px;
+            text-align: center;
+            font-size: 22px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        #affiliation {
+            max-width: 950px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: -5px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        #email {
+            max-width: 950px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            margin: 0 auto 0px auto;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+            font-variant: monospace;
+        }
+        #plot-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        .bracketed-list {
+            counter-reset: item;
+        }
+
+        .bracketed-list li {
+            list-style-type: none;
+            counter-increment: item;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .bracketed-list li::before {
+            content: "[" counter(item) "]";
+            position: absolute;
+            left: 0;
+        }
+        p { margin:8px }
+    </style>
+    <!--Specify MathJax Properties-->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            tags: 'ams'
+          }
+        };
+    </script>
+    <!--Script for including MathJax-->
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<!--This is the actual content of the html page-->
+<body>
+    <!--Title-->
+    <div id="title">
+        <h1><span style="color:navy">Visual</span><span style="color:green">Lie</span></h1>
+    </div>
+    <div id="author">
+        <p>Hannes Malcha</p>
+    </div>
+    <div id="affiliation">
+        <p>
+            <i>Max Planck Institute for Gravitational Physics (Albert Einstein Institute)<br>
+                D-14476 Potsdam, Germany</i>
+        </p>
+    </div>
+    <div id="email">
+        <p><a href="mailto:hannes.malcha@aei.mpg.de">hannes.malcha@aei.mpg.de</a></p>
+    </div>
+    <!--Text above plot-->
+    <div id="text">
+        {% include '01_Abstract.html.jinja' %}
+    </div>
+    <!--Plot-->
+    <div id="plot-container">
+        {{ html_plot }}
+    </div>
+    <!--Text below plot split into several sections-->
+    <div id="subtitle">
+        <body>
+            <h2>1 Basic Facts about the Feingold-Frenkel Algebra</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '02_Introduction.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>2 Weights and Modules</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '03_Weights.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2 id="RootSystem">3 The Root System</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '04_Root_System.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>4 Classifying the Highest Weight Representations</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '05_Highest_Weight.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2><span style="display: inline-block;">5 Decomposition of $\mathcal{F}$ with respect to $A_1^{(1)}$</span></h2> 
+        </body>
+    </div>
+    <div id="text">
+        {% include '06_Subalgebra.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>6 The Weyl Group Action</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '07_Weyl_Group.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2 id="Multiplicities">7 The Root Multiplicities</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '08_Multiplicities.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>8 Generalized Theta Functions and the Character Formula</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '09_Character.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>Acknowledgements</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '10_Acknowledgements.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>References</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '11_References.html.jinja' %}
+    </div>
+
+    <div id="subtitle">
+        <body>
+            <h2>License</h2>
+        </body>
+    </div>
+    <div id="text">
+        {% include '12_License.html.jinja' %}
+    </div>
+</body>
+</html>
