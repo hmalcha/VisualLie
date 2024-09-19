@@ -69,11 +69,11 @@ def norm(root):
     return np.dot(root, np.dot(root, np.array([[2,-1,0],[-1,2,-2],[0,-2,2]])))
 
 
-# Import the roots from the models/ folder
+# Import the roots from the data/ folder
 try:
     roots = np.genfromtxt('data/roots.txt', delimiter=',',dtype=int)
 except IOError:
-    print("Could not find roots.txt in models/.") 
+    print("Could not find roots.txt in data/.") 
 
 # Each row in roots is a list with the four entires
 # [level, depth, spin label, multiplicity]
