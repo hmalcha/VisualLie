@@ -158,17 +158,17 @@ function translation_orbit_computer(root, maxDepth) {
 // Compute the orbit depending on the radio button setting.
 // Highlight the roots in the orbit and draw the parabola 
 // through the highlighted roots.
-for (let i = 0; i < MAXLEVEL; i++){
+for (let i = 0; i < max_level; i++){
     if (root_plots[i].visible){
         const selected_index = sources_roots[i].selected.indices;
         if (selected_index){
             const level = i + 1;
             let orbit;
             if (radio_button_group.active == 0){
-                orbit = weyl_orbit_computer([level, sources_roots[i].data['r0'][selected_index[0]], sources_roots[i].data['r1'][selected_index[0]]], MAXDEPTH);
+                orbit = weyl_orbit_computer([level, sources_roots[i].data['r0'][selected_index[0]], sources_roots[i].data['r1'][selected_index[0]]], max_depth);
             }
             else{
-                orbit = translation_orbit_computer([level, sources_roots[i].data['r0'][selected_index[0]], sources_roots[i].data['r1'][selected_index[0]]], MAXDEPTH);
+                orbit = translation_orbit_computer([level, sources_roots[i].data['r0'][selected_index[0]], sources_roots[i].data['r1'][selected_index[0]]], max_depth);
             }
                 
             const xVal = orbit.map(root => root[2] - root[1]);

@@ -27,7 +27,7 @@
 wo_plot.visible = false
 parabola.visible = false
 // Reset the selected root.
-for (let i = 0; i < MAXLEVEL; i++){
+for (let i = 0; i < max_level; i++){
     sources_roots[i].selected.indices = [];
     sources_roots[i].change.emit();
 }

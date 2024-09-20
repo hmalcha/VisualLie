@@ -24,7 +24,7 @@
  * according to the selected checkboxes.
  */
 
-for (let i = 0; i < MAXLEVEL; i++){
+for (let i = 0; i < max_level; i++){
     if (root_plots[i].visible){
         var xr = [plot.x_range.start,plot.x_range.end]
         labels[i].visible = checkboxes.active.includes(0)

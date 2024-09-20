@@ -25,7 +25,7 @@
  */
 
 var xr = [plot.x_range.start,plot.x_range.end]
-                   for (let i = 0; i < MAXLEVEL; i++){
+                   for (let i = 0; i < max_level; i++){
                         if (root_plots[i].visible && checkboxes.active.includes(0) && xr[1]-xr[0] < 15){
                             labels[i].text_font_size="15px"
                             } else {

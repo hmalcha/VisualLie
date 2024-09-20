@@ -26,7 +26,7 @@
  */
 
 
-for (let i = 0; i < MAXLEVEL; i++){
+for (let i = 0; i < max_level; i++){
     root_plots[i].visible = false
     labels[i].visible = false
     ref_lines_2[i].visible = false
