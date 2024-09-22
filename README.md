@@ -26,10 +26,7 @@ and
 To install these packages using `pip`, enter
 
 ```
-pip install numpy
-pip install pandas
-pip install bokeh
-pip install plotly
+pip install numpy pandas bokeh plotly
 ```
 
 Then you can run **VisualLie.py** to build **index.html** using
