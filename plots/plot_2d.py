@@ -49,22 +49,19 @@ from bokeh.embed import file_html
 from bokeh.resources import CDN
 
 
-##################################
-#                                #
-# Set parameters and import data #
-#                                #
-##################################
-
-# Define the maximum depth and level for the plots
-
-
-
 def norm(root):
     """Compute the norm of a root from its root vector"""
     return np.dot(root, np.dot(root, np.array([[2,-1,0],[-1,2,-2],[0,-2,2]])))
 
 def make_2d_plot(max_depth, max_level):
     """Create the 2D plot and return it as html document"""    
+
+
+    #########################
+    #                       #
+    # Prepare the plot data #
+    #                       #
+    #########################
 
     # Import the roots from the data/ folder
     try:
@@ -330,11 +327,11 @@ def make_2d_plot(max_depth, max_level):
                     v_padding_5, radio_button_heading, radio_button_group, width=200)
 
 
-    #######################################
-    #                                     #
-    # Embed the plot in the html template #
-    #                                     #
-    #######################################
+    ######################################
+    #                                    #
+    # Return a html document of the plot #
+    #                                    #
+    ######################################
 
     # Create an html document that embeds the bokeh plot and return it
     return(file_html(row(widgets, plot), CDN, "VisualLie_Plot"))

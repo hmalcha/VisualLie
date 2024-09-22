@@ -43,6 +43,7 @@ and as index.html in the docs/ directory.
 
 from jinja2 import Environment, FileSystemLoader
 from plots.plot_2d import make_2d_plot
+from plots.plot_3d import make_3d_plot
 
 # Define the maximum depth and level for the 2D plots
 MAXDEPTH = 30
@@ -50,6 +51,7 @@ MAXLEVEL = 5
 
 # Create the 2D Plot
 html_2d_plot = make_2d_plot(MAXDEPTH, MAXLEVEL)
+html_3d_plot = make_3d_plot()
 
 # Load the html environment
 environment = Environment(loader=FileSystemLoader("templates"))
@@ -58,14 +60,17 @@ environment = Environment(loader=FileSystemLoader("templates"))
 template = environment.get_template("main_template.html.jinja")
 
 # Insert the plot and the text into the template
-rendered_template = template.render(html_2d_plot=html_2d_plot)
+rendered_template = template.render(html_2d_plot=html_2d_plot, html_3d_plot=html_3d_plot)
 
 # Save the plot embedded into the html template to a file
+# This is disabled for GitHub
+"""
 try:
     with open("VisualLie.html", "w") as f:
         f.write(rendered_template)
 except IOError:
     print("Could not write the file.") 
+"""
     
 # Save the html file to the docs/ folder for integration with GitHub Pages
 try:

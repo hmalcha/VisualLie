@@ -1,0 +1,79 @@
+{#
+    This file is part of VisualLie.
+    
+    Copyright (C) 2024 Hannes Malcha 
+    
+    VisualLie is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    VisualLie is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with VisualLie.  If not, see <https://www.gnu.org/licenses/>.
+#}
+    
+{#
+    VisualLie is a web app to visualize the root system of the
+    Feingold-Frenkel algebra.
+    
+    This file contains part of the text displayed around the plots.
+#}
+
+<p>
+    At lower levels, it is possible to significantly improve the 
+    recursive construction of the root system.
+</p>
+<p>
+    Having a closer look at the level 1 of $\mathcal{F}$, we notice 
+    that the multiplicities in each string of roots extending into 
+    the $-y$ direction are the same. This is because the Weyl orbit 
+    of the highest weight $-\boldsymbol{\alpha}_{-1}$ contains the 
+    ends of all these root strings. It has been shown that the 
+    multiplicities in these root strings are nothing but the integer 
+    partitions. Hence, we can obtain them all from the generating 
+    function
+
+    \begin{align}\label{eq:phi}
+    \varphi(q) = \prod_{i \ge 1} \frac{1}{(1-q^n)} = 1 + q + q^2 + 2 q^3 + 3 q^3 + 5 q^4 + \ldots 
+    \end{align}
+
+    We call $\varphi(q)$ a string function. Subsequently we can 
+    write the character of $\mathcal{F}_1 = L(\Lambda_1)$ as
+
+    \begin{align}\label{eq:chF1}
+    \mathrm{ch}(\mathcal{F}_1) = \mathrm{ch}(L(\boldsymbol{\Lambda_1})) 
+    = \varphi(q) \, \Theta_{\boldsymbol{\Lambda_1}} \, ,  \quad \text{with} 
+    \quad  q = e^{-\boldsymbol{\delta}}
+    \end{align}
+
+    and where for any weight $\lambda \in \mathfrak{h}^\ast$ of level $\ell$
+
+    \begin{align}
+    \Theta_\lambda = e^{- \frac{|\lambda|^2}{2\ell} \boldsymbol{\delta}} \sum_{t \in T} e^{t(\lambda)} \, .
+    \end{align}
+
+    At higher levels, the equation $\small{\eqref{eq:chF1}}$ becomes much 
+    more complicated. Already at level 2, we need two string 
+    functions to describe the character of $V(2\Lambda_1)$, and 
+    neither of them is as simple as $\small{\eqref{eq:phi}}$. To describe 
+    the character of $\mathcal{F}_2$, a total of four string 
+    functions are needed. 
+</p>
+<p>
+    In general, one can write for any highest-weight representation
+
+    \begin{align}
+    \mathrm{ch}\left( L ( i \boldsymbol{\Lambda}_0 + j \boldsymbol{\Lambda}_1) \right) =
+     \sum_{m,n}  C_{ij}^{mn} \ \Theta_{m \boldsymbol{\Lambda}_0 + n \boldsymbol{\Lambda}_1} \, .
+    \end{align}
+
+    The difficulty is then to figure out the string string 
+    functions $C_{ij}^{mn}$. This has been done for all highest weight 
+    representations up to level 2 in [<a href="#FF">1</a>] and up to level 
+    3 in [<a href="#BB">4</a>].
+</p>

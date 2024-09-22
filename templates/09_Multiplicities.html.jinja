@@ -1,0 +1,156 @@
+{#
+    This file is part of VisualLie.
+    
+    Copyright (C) 2024 Hannes Malcha 
+    
+    VisualLie is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    VisualLie is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with VisualLie.  If not, see <https://www.gnu.org/licenses/>.
+#}
+    
+{#
+    VisualLie is a web app to visualize the root system of the
+    Feingold-Frenkel algebra.
+    
+    This file contains part of the text displayed around the plots.
+#}
+
+<p>
+    In this section, we explain how the root multiplicities are calculated.
+</p>
+<p>
+    A useful way to decode the entire information of an integrable 
+    highest-weight module into a compact expression is the formal character 
+    formula
+
+    \begin{align}
+    \mathrm{ch}(L(\boldsymbol{\Lambda})) = \sum_{\lambda \in P(\boldsymbol{\Lambda})} \mathrm{mult}(\lambda) e^\lambda \, .
+    \end{align}
+
+    This formula is in one-to-one correspondence with the figures above.
+    For example the level 1 of $\mathcal{F}$ is given by 
+    $\mathcal{F}^{(1)} = L(\boldsymbol{\Lambda}_0)$ and its 
+    character is
+
+    \begin{align}
+    \begin{aligned}
+    \mathrm{ch}(\mathcal{F}_1) = \mathrm{ch} (L(\boldsymbol{\Lambda}_1)) 
+    &= 1 \cdot e^{-\boldsymbol{\alpha}_{-1}} 
+    + 1 \cdot e^{-\boldsymbol{\alpha}_{-1} - \boldsymbol{\alpha}_0} 
+    +  1 \cdot e^{-\boldsymbol{\alpha}_{-1} - \boldsymbol{\alpha}_0 - \boldsymbol{a}_1}  
+    + 1  \cdot e^{-\boldsymbol{\alpha}_{-1} - \boldsymbol{\alpha}_0 - 2 \boldsymbol{\alpha}_1} \\
+    &\quad  + 1  \cdot e^{-\boldsymbol{\alpha}_{-1} - 2 \boldsymbol{\alpha}_0 -  \boldsymbol{\alpha}_1}   
+    + 2  \cdot e^{-\boldsymbol{\alpha}_{-1} - 2 \boldsymbol{\alpha}_0 - 2 \boldsymbol{\alpha}_1} + \ldots
+    \end{aligned}
+    \end{align}
+
+    To compute the multiplicities, we need to introduce some additional 
+    notation. Let $w = r_{1_1} \ldots r_{i_s} \in W$ be an element of 
+    the Weyl group and $\epsilon(w) = (-1)^{\ell(w)}$. Here 
+    $\ell(w) = s$ is the length of $w$, i.e., the minimal number of 
+    repeated Weyl reflections $r_i$ one has to do to get $w$. Moreover, 
+    let $\boldsymbol{\rho} = (1,1,1)$ be the Weyl vector of 
+    $\mathfrak{g}(A)$. Then the Weyl-Kac character formula is [<a href="#Kac">3</a>]
+
+    \begin{align}\label{eq:CharacterFormula}
+    \mathrm{ch}(L(\boldsymbol{\Lambda})) = \frac{\sum\limits_{w \in W} \epsilon(w) 
+    e^{-w(\boldsymbol{\Lambda}+\boldsymbol{\rho}) + \boldsymbol{\rho}}}{\prod\limits_{\boldsymbol{\alpha} \in \Delta_+} 
+    (1-e^{\boldsymbol{\alpha}})^{\mathrm{mult}({\boldsymbol{\alpha})}}} \, .
+    \end{align}
+
+    A particularly simple case arises when we specialize to the 1-dimensional 
+    trivial representation $L(0) = \mathbb{C}$. The resulting formula is 
+    known as the denominator formula
+
+    \begin{align}\label{eq:DenominatorFormula}
+    \sum_{w \in W} \epsilon(w) e^{-w(\boldsymbol{\rho})+\boldsymbol{\rho}} 
+    = \prod_{\boldsymbol{\alpha} \in \Delta_+} (1-e^{\boldsymbol{\alpha}})^{\mathrm{mult}(\boldsymbol{\alpha})} \, .
+    \end{align}
+
+    By expanding both sides and comparing coefficients, we can, in principle, 
+    obtain the multiplicities $\mathrm{mult}(\boldsymbol{\alpha})$ of all the 
+    root $\boldsymbol{\alpha} \in \Delta_+$. However, there is a more efficient 
+    and elegant way due to Peterson that we will outline below.
+</p>
+<p>
+    We call the denominator of $\small{\eqref{eq:CharacterFormula}}$
+
+    \begin{align}
+    R= \prod_{\boldsymbol{\alpha} \in \Delta_+} (1-e^{\boldsymbol{\alpha}})^{\mathrm{mult}(\boldsymbol{\alpha})}
+    \end{align}
+
+    and introduce the so-called co-multiplicity
+
+    \begin{align}
+    c_{\boldsymbol{\alpha}}  =  \sum_{k \ge 1} \frac{1}{k} \, \mathrm{mult} \left( \frac{\boldsymbol{\alpha}}{k} \right) \, .
+    \end{align}
+
+    Here the sum is only over those $k \in \mathbb{Z}_{\ge0}$, 
+    where $\boldsymbol{\alpha}/k \in Q$. Then, it is not hard 
+    to show that 
+
+    \begin{align}
+    F  = - \log R= \sum_{\boldsymbol{\beta}>0} c_{\boldsymbol{\beta}} e^{\boldsymbol{\beta}} \, , 
+    \end{align}
+
+    Here the sum is no longer over the roots $\alpha \in \Delta_+$ but 
+    over all root multiples, i.e. all $\boldsymbol{\beta} \in Q$ such 
+    that $k \boldsymbol{\alpha} = \boldsymbol{\beta}$ for some 
+    $\boldsymbol{\alpha} \in \Delta_+$ and $k \in \mathbb{Z}_{\ge0}$. 
+    Root multiples can have co-multiplicity $> 0$, but their 
+    multiplicity is always zero.
+</p>
+<p>   
+    Then we choose an orthonormal basis $u_i$ of the Cartan subalgebra 
+    and take the Laplacian  $\sum_i \partial_i^2$ (where 
+    $\partial_i e^{\boldsymbol{\alpha}} = \boldsymbol{\alpha}(u_i)e^{\boldsymbol{\alpha}}$) 
+    of the denominator formula $\small{\eqref{eq:DenominatorFormula}}$ 
+
+    \begin{align}
+    \sum_i \partial_i^2 R = 2  \sum_i \boldsymbol{\rho}(u_i) \partial_i R \, .
+    \end{align}
+
+    This implies
+
+    \begin{align}
+    \sum_i \left( (\partial_i F)^2 - \partial_i^2 F \right) 
+    = - 2 \sum_{\boldsymbol{\alpha}>0} c_{\boldsymbol{\alpha}} (\boldsymbol{\alpha} , \boldsymbol{\rho}) e^{\boldsymbol{\alpha}} \, .
+    \end{align}
+
+    Expanding the left-hand side yields
+
+    \begin{align}
+    \sum_i \left( (\partial_i F)^2 - \partial_i^2 F \right) 
+    = \sum_i \left( \sum_{\boldsymbol{\beta} > 0} c_{\boldsymbol{\beta}} \, \boldsymbol{\beta}(u_i) e^{\boldsymbol{\beta}} \right) 
+    \left( \sum_{\boldsymbol{\gamma} > 0} c_{\boldsymbol{\gamma}} \boldsymbol{\gamma}(u_i) e^{\boldsymbol{\gamma}} \right) 
+    - \sum_{\boldsymbol{\alpha} > 0} c_{\boldsymbol{\alpha}}  (\boldsymbol{\alpha}, \boldsymbol{\alpha}) e^{\boldsymbol{\alpha}}
+    \end{align}
+
+    and by comparing coefficients, we arrive at the 
+    \textbf{Peterson recursion formula}
+
+    \begin{align}\label{eq:PetersonFormula}
+    (\boldsymbol{\alpha},\boldsymbol{\alpha} - 2 \boldsymbol{\rho}) c_\alpha 
+    = \sum_{\substack{\boldsymbol{\beta}, \boldsymbol{\gamma} > 0 \\ 
+    \boldsymbol{\beta} +\boldsymbol{\gamma} = \boldsymbol{\alpha}}} c_{\boldsymbol{\beta}} c_{\boldsymbol{\gamma}} 
+    \,  (\boldsymbol{\beta} , \boldsymbol{\gamma}) \, .
+    \end{align}
+
+    This formula tells us that we obtain the multiplicity of a root 
+    $\boldsymbol{\alpha}$ from the sum of the co-multiplicities of all 
+    root multiplets $\boldsymbol{\beta}$ and $\boldsymbol{\gamma}$, 
+    where $\boldsymbol{\beta} + \boldsymbol{\gamma} = \boldsymbol{\alpha}$. 
+    Thus, the steps to find new roots in section <a href="#RootSystem">3</a> 
+    together with $\small{\eqref{eq:PetersonFormula}}$ allow us to iteratively 
+    construct the root system of the Feingold-Frenkel algebra $\mathcal{F}$ 
+    starting from the set of simple roots $\small{\eqref{eq:SimpleRoots}}$.
+</p>

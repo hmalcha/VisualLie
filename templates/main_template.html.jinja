@@ -58,6 +58,21 @@ This file defines the structure of the VisualLie.html file.
             font-family: Helvetica, Arial, sans-serif;
             font-weight: bold;
         }
+        h3 {
+            width: 935px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 0px auto;
+            margin-top: 50px;
+            margin-bottom: 5px;
+            text-align: left;
+            font-size: 25px;
+            line-height: 1.5;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
         body, html {
             height: 100%;
             margin: 0;
@@ -108,12 +123,19 @@ This file defines the structure of the VisualLie.html file.
             line-height: 1.5;
             font-family: Helvetica, Arial, sans-serif;
         }
-        #plot-container {
+        #plot-container-2d {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 40px;
             margin-bottom: 30px;
+        }
+        #plot-container-3d {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 40px;
         }
         .bracketed-list {
             counter-reset: item;
@@ -167,90 +189,98 @@ This file defines the structure of the VisualLie.html file.
     <div id="text">
         {% include '01_Abstract.html.jinja' %}
     </div>
-    <!--Plot-->
-    <div id="plot-container">
+    <!--2D Plot-->
+    <div id="plot-container-2d">
         {{ html_2d_plot }}
     </div>
-    <!--Text below plot split into several sections-->
-    <div id="subtitle">
+    <!--Text between plots-->
+    <div id="text">
+        {% include '02_Plot_Text.html.jinja' %}
+    </div>
+    <!--3D Plot-->
+    <div id="plot-container-3d">
+        {{ html_3d_plot }}
+    </div>
+    <!--Text below plots split into several sections-->
+    <div>
         <body>
             <h2>1 Basic Facts about the Feingold-Frenkel Algebra</h2>
         </body>
     </div>
     <div id="text">
-        {% include '02_Introduction.html.jinja' %}
+        {% include '03_Introduction.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2>2 Weights and Modules</h2>
         </body>
     </div>
     <div id="text">
-        {% include '03_Weights.html.jinja' %}
+        {% include '04_Weights.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2 id="RootSystem">3 The Root System</h2>
         </body>
     </div>
     <div id="text">
-        {% include '04_Root_System.html.jinja' %}
+        {% include '05_Root_System.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2>4 Classifying the Highest Weight Representations</h2>
         </body>
     </div>
     <div id="text">
-        {% include '05_Highest_Weight.html.jinja' %}
+        {% include '06_Highest_Weight.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2><span style="display: inline-block;">5 Decomposition of $\mathcal{F}$ with respect to $A_1^{(1)}$</span></h2> 
         </body>
     </div>
     <div id="text">
-        {% include '06_Subalgebra.html.jinja' %}
+        {% include '07_Subalgebra.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
-            <h2>6 The Weyl Group</h2>
+            <h2 id="Weyl_Group">6 The Weyl Group</h2>
         </body>
     </div>
     <div id="text">
-        {% include '07_Weyl_Group.html.jinja' %}
+        {% include '08_Weyl_Group.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2 id="Multiplicities">7 Root Multiplicities</h2>
         </body>
     </div>
     <div id="text">
-        {% include '08_Multiplicities.html.jinja' %}
+        {% include '09_Multiplicities.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2>8 Generalized Theta Functions and the Character Formula</h2>
         </body>
     </div>
     <div id="text">
-        {% include '09_Character.html.jinja' %}
+        {% include '10_Character.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2>Acknowledgements</h2>
         </body>
     </div>
     <div id="text">
-        {% include '10_Acknowledgements.html.jinja' %}
+        {% include '11_Acknowledgements.html.jinja' %}
     </div>
 
     <div id="subtitle">
@@ -259,16 +289,16 @@ This file defines the structure of the VisualLie.html file.
         </body>
     </div>
     <div id="text">
-        {% include '11_References.html.jinja' %}
+        {% include '12_References.html.jinja' %}
     </div>
 
-    <div id="subtitle">
+    <div>
         <body>
             <h2>License</h2>
         </body>
     </div>
     <div id="text">
-        {% include '12_License.html.jinja' %}
+        {% include '13_License.html.jinja' %}
     </div>
 </body>
 </html>
