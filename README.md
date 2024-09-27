@@ -17,17 +17,22 @@ For a local version of VisualLie download the
 If you want to modify VisualLie or build the **index.html** file yourself,
 follow these steps. 
 
-VisualLie requires a Python installation with 
-[NumPy](https://numpy.org/), 
-[Pandas](https://pandas.pydata.org/),
+VisualLie requires a Python installation with
 [Bokeh](https://docs.bokeh.org/en/latest/index.html)
 and
 [Plotly](https://plotly.com/python/)
 To install these packages using `pip`, enter
 
 ```
-pip install numpy pandas bokeh plotly
+pip install bokeh plotly
 ```
+
+In particular, bokeh will automatically install
+[NumPy](https://numpy.org/),
+[Pandas](https://pandas.pydata.org/),
+and
+[Jinja](https://palletsprojects.com/projects/jinja/).
+These packages are are also needed for VisualLie.
 
 Then you can run **VisualLie.py** to build **index.html** using
 
