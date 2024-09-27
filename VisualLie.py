@@ -45,13 +45,13 @@ from jinja2 import Environment, FileSystemLoader
 from plots.plot_2d import make_2d_plot
 from plots.plot_3d import make_3d_plot
 
-# Define the maximum depth and level for the 2D plots
-MAXDEPTH = 30
-MAXLEVEL = 5
+# Define the maximum depth and level for the 2D and 3D plots
+_MAXDEPTH_2D, _MAXLEVEL_2D = 30, 5
+_MAXDEPTH_3D, _MAXLEVEL_3D = 16, 19
 
 # Create the 2D Plot
-html_2d_plot = make_2d_plot(MAXDEPTH, MAXLEVEL)
-html_3d_plot = make_3d_plot()
+html_2d_plot = make_2d_plot(_MAXDEPTH_2D, _MAXLEVEL_2D)
+html_3d_plot = make_3d_plot(_MAXDEPTH_3D, _MAXLEVEL_3D)
 
 # Load the html environment
 environment = Environment(loader=FileSystemLoader("templates"))
