@@ -109,7 +109,7 @@ class Root_System:
         
         # If the algebra is finite, we can construct the root system to all heights.
         if self.algebra.finite:
-            construct(0)  
+            self.construct(0)  
 
     def constructed_height(self):
         """Return the height to which we so far have constructed the root system."""
