@@ -11,7 +11,8 @@ The VisualLie web app is available at
 https://hmalcha.github.io/VisualLie/
 
 For a local version of VisualLie download the
-**index.html** file from the docs/ folder and open with your favorite web browser.
+**index.html** file from the docs/ directory and open with your favorite web
+browser.
 
 ## Getting Started
 If you want to modify VisualLie or build the **index.html** file yourself,
@@ -49,34 +50,15 @@ https://hmalcha.github.io/VisualLie/
 or open the **index.html** file you are presented with a detailed
 explanation of how to interact with the plot and the mathematics behind it.
 
-## Rootsystem
-Included in VisualLie is a Python package called **rootsystem**. It constructs
-the root system of the Feingold-Frenkel algebra. This package is based on the
-SimpLie program written by Teake Nutma, which is available at
-https://github.com/teake/simplie.
+## Obtaining the Roots
+The roots and multiplicities displayed in the two plots are read from the
+file **data/roots.txt**. This file has been generated with the Python
+package [Froots](https://github.com/hmalcha/Froots). Froots is based on
+the [SimpLie](https://github.com/teake/simplie) program written by
+Teake Nutma. However, compared to SimpLie Froots allows for the calculation
+of roots with arbitrary height by implementing custom classes for very large
+integers and fractions.
 
-**rootsystem** requires a Python installation with [NumPy](https://numpy.org/).
-**rootsystem** is called with one optional argument from the command line.
-The argument is the height up to which the root system will be constructed.
-If no argument is given, the calculation defaults to a height of 76.
-
-Upon executing the **rootsystem** package, the root system is automatically
-constructed up to the given height and stored as a CSV file in the data/ 
-directory. The first three numbers in each row are the root vector and
-the last number is the multiplicity of that root.
-
-To run the package type
-
-```
-python -m rootsystem [HEIGHT]
-```
-where [HEIGHT] is the optional argument. It can be either nothing or a 
-positive integer.
-
-Note that the root multiplicities are huge numbers. When constructing the
-root system of the Feingold-Frenkel algebra for heights > 80, there are
-some issues due to dealing with numbers greater than 2^64. This will
-hopefully be fixed in a future version.
 
 ## License
 Copyright © 2024 Hannes Malcha

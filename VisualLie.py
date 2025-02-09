@@ -37,7 +37,7 @@ Then the plots and all the .html.jinja files from the templates/ directory
 are integrated into the main_template.html.jinja and one html document
 is rendered.
 
-The document is saved as VisuaLie.html in notebook directory and
+The document is saved as VisualLie.html in notebook directory and
 and as index.html in the docs/ directory.
 """
 
