@@ -55,7 +55,7 @@ The roots and multiplicities displayed in the two plots are read from the
 file **data/roots.txt**. This file has been generated with the Python
 package [Froots](https://github.com/hmalcha/Froots). Froots is based on
 the [SimpLie](https://github.com/teake/simplie) program written by
-Teake Nutma. However, compared to SimpLie Froots allows for the calculation
+Teake Nutma. Compared to SimpLie Froots allows for the calculation
 of roots with arbitrary height by implementing custom classes for very large
 integers and fractions.
 
