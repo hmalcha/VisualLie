@@ -56,8 +56,8 @@ file **data/roots.txt**. This file has been generated with the Python
 package [Froots](https://github.com/hmalcha/Froots). Froots is based on
 the [SimpLie](https://github.com/teake/simplie) program written by
 Teake Nutma. Compared to SimpLie Froots allows for the calculation
-of roots with arbitrary height by implementing custom classes for very large
-integers and fractions.
+of roots with arbitrary height by implementing custom Python
+classes for very large integers and fractions.
 
 
 ## License
