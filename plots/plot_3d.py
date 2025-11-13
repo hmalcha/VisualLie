@@ -189,6 +189,7 @@ def make_3d_plot(max_depth, max_level):
                                  yaxis=axis_style,
                                  zaxis=axis_style
                                 ))
+    
     # Set the initial camera position
     fig.update_layout(scene_camera=dict(eye=dict(x=-1.6, y=1.4, z=1)))
     
@@ -207,7 +208,7 @@ def make_3d_plot(max_depth, max_level):
     #                           #
     #############################    
     
-    # Add a button to show / hide the hyperboloid
+    # Add buttons for user interactions
     fig.update_layout(updatemenus=[
     dict(type="buttons",
          direction="down",
@@ -229,7 +230,7 @@ def make_3d_plot(max_depth, max_level):
             dict(label="Levels 1 - 3",
                  method="update",
                  args=[{"visible": [True] * 3 + [False] * (max_level -3)},
-                       {'title': "Roots of F on Levels 1 to 3"}])
+                       {'title': "Roots of F on Levels 1 to 3"}]),
                 ])
         )
     ])
