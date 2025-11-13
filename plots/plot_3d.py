@@ -230,7 +230,7 @@ def make_3d_plot(max_depth, max_level):
             dict(label="Levels 1 - 3",
                  method="update",
                  args=[{"visible": [True] * 3 + [False] * (max_level -3)},
-                       {'title': "Roots of F on Levels 1 to 3"}]),
+                       {'title': "Roots of F on Levels 1 to 3"}])
                 ])
         )
     ])
