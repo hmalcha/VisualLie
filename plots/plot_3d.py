@@ -71,7 +71,7 @@ def make_3d_plot(max_depth, max_level):
     # Convert the tuples to list
     level, root_x, root_y, root_z = map(list, [level, root_x, root_y, root_z])
 
-    # A a little bit of whitespace to the the first three plot labels
+    # Add a little bit of whitespace to the the first three plot labels
     # This improves the behavior of the plot labels together with the
     # buttons
     for i in range(len(level)):
