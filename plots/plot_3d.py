@@ -68,7 +68,7 @@ def make_3d_plot(max_depth, max_level):
         if np.linalg.det(m) >= -1 and -1/2*(m[0][0] + m[1][1]) < math.floor(max_depth/2) +1
     ])
     
-    # Convert the tuples to list
+    # Convert the tuples to lists
     level, root_x, root_y, root_z = map(list, [level, root_x, root_y, root_z])
 
     # Add a little bit of whitespace to the the first three plot labels
